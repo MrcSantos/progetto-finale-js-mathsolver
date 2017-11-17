@@ -1,6 +1,5 @@
-# JSPRojectTemplate (METTERE IL NOME DEL PROGETTO)
+# MathSolver
 
-## COMPONENTI
+## Veronesi, Santosuosso, Rusyn
 
-## BREVE DESCRIZIONE
-
+## Sito HTML che risolve operazioni di vario genere (es. equazioni, disequazioni, sistemi..)
