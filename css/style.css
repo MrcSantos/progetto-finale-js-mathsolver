@@ -20,6 +20,7 @@ body
 {
 	margin: 0;
 	background: #444;
+	cursor: default;
 }
 
 a
@@ -149,7 +150,8 @@ section#language
 {
 	display: none;
 	background: #fff;
-	margin: auto;
+	position: absolute;
+	right: 15px;
 	width: 200px;
 }
 
@@ -159,12 +161,17 @@ section#language div
 	text-align: center;
 	letter-spacing: 0.03em;
 	width: 200px;
-	height: 90px;
-	margin-top: 100px;
+	height: 150px;
 	background: #2f2f2f;
 	border-radius: 7px;
 	border: 1px solid #202020;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.27), 0 5px 20px 0 rgba(0, 0, 0, 0.27);
+}
+
+h3#title_lang
+{
+	
+	margin-top: 75px;
 }
 
 footer
