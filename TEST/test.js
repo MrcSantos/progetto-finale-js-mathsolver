@@ -50,27 +50,100 @@
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 function sol() {
-    var a;
-    var b;
-    var c;
+    var a, b, c, d, x1, x2;
 
-    a=prompt("Dammi il numero");
-    b=prompt("Dammi il numero");
-    c=prompt("Dammi il numero");
+/*--Variabili-----------------------------------------------------------------*/
 
-    var d=Math.sqrt(b*b-4*a*c);
-    document.getElementById("result").innerHTML=d;
+    a = prompt("Dammi il numero");
+    b = prompt("Dammi il numero");
+    c = prompt("Dammi il numero");
 
-    if((a==0)||(d<0))
-        alert("Impossibile risolvere l'equazione");
+    d = Math.sqrt(b*b -4*a*c);
+    document.getElementById("result").innerHTML = d;
+
+/*--Input---------------------------------------------------------------------*/
+
+    if (isNaN(a) || isNaN(b) || isNaN(c))
+        document.getElementById('result').innerHTML = 'Non hai immesso valori validi';
     else {
-        var x1 = (-b + d ) / (a*2);
-        var x2 = (-b - d ) / (a*2);
-        document.getElementById("result").innerHTML=x1 + ", " + x2;}
+        if ((a == 0) || (d < 0))
+        alert("Impossibile risolvere l'equazione");
+        else {
+            x1 = (-b + d ) / (a*2);
+            x2 = (-b - d ) / (a*2);
+
+            if (isNaN(x1) || isNaN(x2))
+                document.getElementById("result").innerHTML = "Impossibile";
+            else
+                document.getElementById("result").innerHTML=x1 + ", " + x2;
+        }
     }
 
+/*--Esecuzione----------------------------------------------------------------*/
 
-    /*--------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+}
+
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/*
+
+var forma=''
+var a, b, c
+
+function calcolaPrimo() {
+   if (b==0) {
+     if (c==0) {
+            document.getElementById('ris').innerHTML = forma + ' è un\'equazione indeterminata'
+      } else {
+              document.getElementById('ris').innerHTML = forma + ' è un\'equazione impossibile'
+             }
+    }
+  else {
+      x=-c/b;
+      document.getElementById('ris').innerHTML = forma + ' è un\'equazione di primo grado determinata.<br> La soluzione è ' + x;
+      }
+    }
+function calcola() {
+forma =a + 'x<sup><small>2</sup></small>';
+if (b>=0){forma+='+'}
+   forma+=b + 'x';
+if (c>=0){forma+='+'}
+ forma+=c + ' = 0';
+  if (a==0) {calcolaPrimo()}
+  else {
+  delta = Math.pow(b,2)-4*a*c
+  if (delta<0) {
+           document.getElementById('ris').innerHTML = forma + " non ammette radici reali"
+               }
+        else {
+        if (delta==0) {
+         x=-b/(2*a)
+         document.getElementById('ris').innerHTML = forma + "  ammette due radici reali e coincidenti date da <br>"+ "x<sub><small>1</sub></small> = x<sub><small>2</sub></small> = " + x;
+           }
+        else {
+          x1=(-b - Math.sqrt(delta)) /(2*a);
+          x2=(-b + Math.sqrt(delta)) /(2*a);
+    document.getElementById('ris').innerHTML =  forma + "  ammette due radici reali e distinte date da <br>"+ "x<sub><small>1</sub></small> = " + x1 +"<br>x<sub><small>2</sub></small> = " + x2
+            }
+           }
+       }
+ }
+function esegui() {
+  a=Number(document.equa.a1.value);
+  b=Number(document.equa.b1.value);
+  c=Number(document.equa.c1.value);
+ if (a==0){document.equa.a1.value = 0}
+ if (b==0){document.equa.b1.value = 0}
+ if (c==0){document.equa.c1.value = 0}
+ if (isNaN(a) || isNaN(b) || isNaN(c)) {
+            document.getElementById('ris').innerHTML = 'Non hai immesso valori validi'
+  }
+ else {
+  calcola();
+ }
+}
+</script>
 
 
     function isNum(args)
@@ -90,22 +163,6 @@ function sol() {
 
         return true;
 
-    }
-
-
-    function change(varr)
-    {
-        var aa = varr.value;
-
-        if(isNum(aa))
-        {
-
-        }
-        else
-        {
-            aa = aa.substring(0,aa.length-1);
-            document.first.frac.value = aa;
-        }
     }
 
     function hcfof(num1,num2)
@@ -161,25 +218,67 @@ function sol() {
             document.first.t3.value = ee;
             document.first.t4.value = dd;
         }
-        else{}
     }
 
 
-    function color(test)
-    {
 
-        for(var j=2; j<6; j++)
-        {
-            var myI=document.getElementsByTagName("input").item(j);
-            myI.style.backgroundColor=test;
 
-        }
+
+
+    var forma=''
+var a, b, c
+
+function calcolaPrimo() {
+   if (b==0) {
+     if (c==0) {
+            document.getElementById('ris').innerHTML = forma + ' è un\'equazione indeterminata'
+      } else {
+              document.getElementById('ris').innerHTML = forma + ' è un\'equazione impossibile'
+             }
     }
-
-
-    function color1(test)
-    {
-        var myI=document.getElementsByTagName("table").item(0);
-        //myI.setAttribute("style",ch);
-        myI.style.backgroundColor=test;
+  else {
+      x=-c/b;
+      document.getElementById('ris').innerHTML = forma + ' è un\'equazione di primo grado determinata.<br> La soluzione è ' + x;
+      }
     }
+function calcola() {
+forma =a + 'x<sup><small>2</sup></small>';
+if (b>=0){forma+='+'}
+   forma+=b + 'x';
+if (c>=0){forma+='+'}
+ forma+=c + ' = 0';
+  if (a==0) {calcolaPrimo()}
+  else {
+  delta = Math.pow(b,2)-4*a*c
+  if (delta<0) {
+           document.getElementById('ris').innerHTML = forma + " non ammette radici reali"
+               }
+        else {
+        if (delta==0) {
+         x=-b/(2*a)
+         document.getElementById('ris').innerHTML = forma + "  ammette due radici reali e coincidenti date da <br>"+ "x<sub><small>1</sub></small> = x<sub><small>2</sub></small> = " + x;
+           }
+        else {
+          x1=(-b - Math.sqrt(delta)) /(2*a);
+          x2=(-b + Math.sqrt(delta)) /(2*a);
+    document.getElementById('ris').innerHTML =  forma + "  ammette due radici reali e distinte date da <br>"+ "x<sub><small>1</sub></small> = " + x1 +"<br>x<sub><small>2</sub></small> = " + x2
+            }
+           }
+       }
+ }
+function esegui() {
+  a=Number(document.equa.a1.value);
+  b=Number(document.equa.b1.value);
+  c=Number(document.equa.c1.value);
+ if (a==0){document.equa.a1.value = 0}
+ if (b==0){document.equa.b1.value = 0}
+ if (c==0){document.equa.c1.value = 0}
+ if (isNaN(a) || isNaN(b) || isNaN(c)) {
+            document.getElementById('ris').innerHTML = 'Non hai immesso valori validi'
+  }
+ else {
+  calcola();
+ }
+}
+</script>
+*/
