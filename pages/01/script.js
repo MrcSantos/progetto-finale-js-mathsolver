@@ -3,9 +3,9 @@ function sol() {
 
 /*--Variabili-----------------------------------------------------------------*/
 
-    a = prompt("Dammi il numero");
-    b = prompt("Dammi il numero");
-    c = prompt("Dammi il numero");
+    a = document.getElementById("inputA").innerHTML;
+    b = document.getElementById("inputB").innerHTML;
+    c = document.getElementById("inputC").innerHTML;
 
     d = Math.sqrt(b*b -4*a*c);
     document.getElementById("result").innerHTML = d;
