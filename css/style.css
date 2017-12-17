@@ -1,7 +1,7 @@
 @font-face
 {
-	font-family: ;
-    src: ;
+	font-family: Quicksand;
+    src: url(../font/ql.ttf);
 }
 
 @font-face
@@ -12,12 +12,12 @@
 
 *
 {
-	font-family: Adam;
 	color: #fff;
 }
 
 body
 {
+	font-family: Quicksand;
 	margin: 0;
 	background: #444;
 	cursor: default;
@@ -31,6 +31,7 @@ a
 
 header
 {
+	font-family: Adam;
 	background: #2f2f2f;
 	border-bottom: 1px solid #202020;
 	width: 100%;
@@ -138,12 +139,13 @@ section.content
 
 section.content h1
 {
+	font-family: Adam;
 	font-size: 36px;
 }
 
 section.content p
 {
-	font-size: 20px;
+	font-size: 24px;
 }
 
 section#language
@@ -189,6 +191,12 @@ footer
 
 footer p
 {
+	font-family: Adam;
 	margin-top: 10px;
 	text-align: center;
+}
+
+button
+{
+	color: #000;
 }
