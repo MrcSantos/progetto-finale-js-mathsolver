@@ -19,21 +19,27 @@ function sol(nx2, nx, n) { // Funzione che risolve le equazioni di secondo grado
 
 ////////////////////////////////////////////////////////////////////////////////
 
-function input(Original) {
-    Original.replace(/x/gi, "X"); // Trasforma da x a X
-    Original.replace(/X2/g, "X²"); // Trasforma i 2 dei coefficenti della x da 2 a ²
-    Original.replace(/ /g, ""); // Toglie tutti gli spazi
+function input(Original) { // Trasforma l'input in una forma accettabile dal computer
+    Original = Original.replace(/X/g, "x"); // Trasforma da x a X
+    Original = Original.replace(/x2/g, "x²"); // Trasforma i 2 dei coefficenti della x da 2 a ²
+    Original = Original.replace(/ /g, ""); // Toglie tutti gli spazi
 
     return Original;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-function output(Ris) {
-    if (Ris[0].equals("Imppossibile"))
+function output(Ris) { // Trasforma il risultato in una forma accettabile dall'utente
+    if (Ris[0].equals("Imppossibile")) // Controllo eq imposibile
         document.getElementById('result').innnerHTML = "L'equazione e' impossibile";
     else
         document.getElementById('result').innnerHTML = "X<small>1</small> = " + Ris[0] + "\tX<small>2</small> = " + Ris[1];
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+
+function TEST() { // Funzione di test delle funzioni
+    var In = "3x2 + 2x - 5";
+    In = input(In);
+    alert(In);
+}
