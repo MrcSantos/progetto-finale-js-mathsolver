@@ -17,31 +17,11 @@ function sol(nx2, nx, n) { // Funzione che risolve le equazioni di secondo grado
 	return Ris;
 }
 
-/*
-function sol() {
-    var a, b, c, d, x1, x2;
+////////////////////////////////////////////////////////////////////////////////
 
-    a = document.getElementById("inputA").innerHTML;
-    b = document.getElementById("inputB").innerHTML;
-    c = document.getElementById("inputC").innerHTML;
-
-    d = Math.sqrt(b*b -4*a*c);
-    document.getElementById("result").innerHTML = d;
-
-    if (isNaN(a) || isNaN(b) || isNaN(c))
-        document.getElementById('result').innerHTML = 'Non hai immesso valori validi';
-    else {
-        if ((a == 0) || (d < 0))
-        alert("Impossibile risolvere l'equazione");
-        else {
-            x1 = (-b + d ) / (a*2);
-            x2 = (-b - d ) / (a*2);
-
-            if (isNaN(x1) || isNaN(x2))
-                document.getElementById("result").innerHTML = "Impossibile";
-            else
-                document.getElementById("result").innerHTML=x1 + ", " + x2;
-        }
-    }
+function output(Ris) {
+    if (Ris[0].equals("Imppossibile"))
+        document.getElementById('result').innnerHTML = "L'equazione e' impossibile";
+    else
+        document.getElementById('result').innnerHTML = "X<small>1</small> = " + Ris[0] + "\tX<small>2</small> = " + Ris[1];
 }
-*/
