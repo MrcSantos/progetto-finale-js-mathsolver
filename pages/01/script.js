@@ -30,16 +30,16 @@ function input(Original) { // Trasforma l'input in una forma accettabile dal com
 ////////////////////////////////////////////////////////////////////////////////
 
 function output(Ris) { // Trasforma il risultato in una forma accettabile dall'utente
-    if (Ris[0].equals("Imppossibile")) // Controllo eq imposibile
-        document.getElementById('result').innnerHTML = "L'equazione e' impossibile";
+    if (Ris[0] == "Impossibile") // Controllo eq imposibile
+        return "L'equazione e' impossibile";
     else
-        document.getElementById('result').innnerHTML = "X<small>1</small> = " + Ris[0] + "\tX<small>2</small> = " + Ris[1];
+        return "X<small>1</small> = " + Ris[0] + "\tX<small>2</small> = " + Ris[1];
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-function TEST() { // Funzione di test delle funzioni
-    var In = "3x2 + 2x - 5";
+function TEST() {
+    var In = "3X2 + 2X - 5";
     In = input(In);
     alert(In);
 }
