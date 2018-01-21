@@ -30,7 +30,7 @@ function input(Original) { // Trasforma l'input in una forma accettabile dal com
 ////////////////////////////////////////////////////////////////////////////////
 
 function output(Ris) { // Trasforma il risultato in una forma accettabile dall'utente
-    if (Ris[0] == "Impossibile") // Controllo eq imposibile
+    if (Ris[0] == "Impossibile" || Ris[1] == "Impossibile") // Controllo eq imposibile
         return "L'equazione e' impossibile";
     else
         return "X<small>1</small> = " + Ris[0] + "\tX<small>2</small> = " + Ris[1];
