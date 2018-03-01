@@ -1,16 +1,16 @@
-function sol(nx2, nx, n) { // Funzione che risolve le equazioni di secondo grado dati i 3 dati in ingresso (nx2 = coefficente di x²; nx = coefficente di x; n = termine noto)
+function solve(num) { // Funzione che risolve le equazioni di secondo grado dati i 3 dati in ingresso (num[0] = coefficente di x²; num[1] = coefficente di x; num[2] = termine noto)
     var Delta, Ris = [];
 
-    if (isNaN(nx2) || isNaN(nx) || isNaN(n)) // Controllo validita' numeri
-        throw new TypeError("Valori inseriti non validi");
+    if (isNaN(num[0]) || isNaN(num[1]) || isNaN(num[2])) // Controllo validita' numeri
+        Ris[0] = "Impossibile";
     else {
-        Delta = (nx * nx) - (4 * nx2 * n);
+        Delta = (num[1] * num[1]) - (4 * num[0] * num[2]);
 
-        if ((nx2 == 0) || (Delta < 0)) // Controllo equazione impossibile
-            throw new RangeError("Equazione impossibile");
+        if ((num[0] == 0) || (Delta < 0)) // Controllo equazione impossibile
+            Ris[0] = "Impossibile";
         else {
-			Ris[0] = (-nx + Math.sqrt(Delta) ) / (nx2*2);
-            Ris[1] = (-nx - Math.sqrt(Delta) ) / (nx2*2); // Risoluzione dei due risultati
+			Ris[0] = (-num[1] + Math.sqrt(Delta)) / (num[0]*2);
+            Ris[1] = (-num[1] - Math.sqrt(Delta)) / (num[0]*2); // Risoluzione dei due risultati
         }
     }
 
@@ -19,27 +19,28 @@ function sol(nx2, nx, n) { // Funzione che risolve le equazioni di secondo grado
 
 ////////////////////////////////////////////////////////////////////////////////
 
-function input(Original) { // Trasforma l'input in una forma accettabile dal computer
-    Original = Original.replace(/X/g, "x"); // Trasforma da x a X
-    Original = Original.replace(/x2/g, "x²"); // Trasforma i 2 dei coefficenti della x da 2 a ²
-    Original = Original.replace(/ /g, ""); // Toglie tutti gli spazi
+function input() { // Trasforma l'input in una forma accettabile dal computer
+    var input = document.getElementById('input').value;
 
-    return Original;
+    input = input.replace(" ", ""); // Toglie tutti gli spazi
+    input = input.replace(/X/g, "x"); // Trasforma da X a x
+    input = input.replace(/x2/g, "x²"); // Trasforma i 2 dei coefficenti della x da 2 a ²
+    input = input.replace(/\Dx/, "/1x"); // Aggiunta del coefficente 1 nel caso non ci fosse
+    
+    return input;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
 function output(Ris) { // Trasforma il risultato in una forma accettabile dall'utente
     if (Ris[0] == "Impossibile" || Ris[1] == "Impossibile") // Controllo eq imposibile
-        return "L'equazione e' impossibile";
+        stampa("L'equazione e' impossibile");
     else
-        return "X<small>1</small> = " + Ris[0] + "\tX<small>2</small> = " + Ris[1];
+        stampa("X<small>1</small> = " + Ris[0] + "    " + "X<small>2</small> = " + Ris[1]);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-function TEST() {
-    var In = "3X2 + 2X - 5";
-    In = input(In);
-    alert(In);
+function main() {
+    output(solve(getNumeri(input())));
 }
