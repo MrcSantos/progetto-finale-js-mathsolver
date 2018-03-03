@@ -21,11 +21,23 @@ function solve(num) { // Funzione che risolve le equazioni di secondo grado dati
 
 function input() { // Trasforma l'input in una forma accettabile dal computer
     var input = document.getElementById('input').value;
-
-    input = input.replace(" ", ""); // Toglie tutti gli spazi
+    
+    input = input.replace(/\s/g, ""); // Toglie tutti gli spazi
     input = input.replace(/X/g, "x"); // Trasforma da X a x
     input = input.replace(/x2/g, "x²"); // Trasforma i 2 dei coefficenti della x da 2 a ²
-    input = input.replace(/\Dx/, "/1x"); // Aggiunta del coefficente 1 nel caso non ci fosse
+
+    if (!isOperatore(input.charAt(0)) || !isFinite(input.charAt(0)) || !isFinite(input.charAt(1))) { // Mette il più all'inizio della stringa se non ha già un operatore
+        if (!isOperatore(input.charAt(0)) && !isFinite(input.charAt(0)))
+            input = "+1" + input;
+        else {
+            if (!isOperatore(input.charAt(0)))
+                input = "+" + input;
+            if (!isFinite(input.charAt(1))) {
+                input = input.slice(1);
+                input = "+1" + input;
+            }
+        }
+    }
     
     return input;
 }
@@ -42,5 +54,6 @@ function output(Ris) { // Trasforma il risultato in una forma accettabile dall'u
 ////////////////////////////////////////////////////////////////////////////////
 
 function main() {
-    output(solve(getNumeri(input())));
+    //output(solve(getNumeri(input())));
+    alert(split(input()));
 }
