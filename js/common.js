@@ -63,7 +63,7 @@ function divPar(Originale) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-function getOperatori(Str) {
+function getOperatori(Str) { // Prende gli operatori di una stringa
     Str = Str.split(/[^+|-|*|/]/);
     var temp = [];
     var itemp = 0;
@@ -78,13 +78,13 @@ function getOperatori(Str) {
     return temp;
 }
 
-function getNumeri(Str) { // Divide la stringa in un array di numeri
+function getNumeri(Str) { // Prende i numeri di una stringa
     Str = Str.split(/\D/);
     var temp = [];
     var itemp = 0;
 
     for (var i = 0; i < Str.length; i++) {
-        if (isFinite(Str[i])) {
+        if (Str[i] != 0) {
             temp[itemp] = Str[i];
             itemp++;
         }
@@ -93,14 +93,19 @@ function getNumeri(Str) { // Divide la stringa in un array di numeri
     return temp;
 }
 
-function getCoefficienti(Str) {
-    Str = Str.split(/\d/);
+function getCoefficienti(Str) { // Prende i coefficienti di una stringa
+    Str = Str.split("");
     var temp = [];
     var itemp = 0;
 
     for (var i = 0; i < Str.length; i++) {
         if (!isFinite(Str[i]) && !isOperatore(Str[i])) {
-            temp[itemp] = Str[i];
+            if (Str[i+1] == "²") {
+                temp[itemp] = "" + Str[i] + Str[i+1];
+                i++;
+            }
+            else
+                temp[itemp] = Str[i];
             itemp++;
         }
     }
@@ -110,11 +115,8 @@ function getCoefficienti(Str) {
 
 function split(Str) {
     var numeri = getNumeri(Str);
-    alert(numeri);
     var operatori = getOperatori(Str);
-    alert(operatori);
     var coefficienti = getCoefficienti(Str);
-    alert(coefficienti);
     var temp = [];
     var itemp = 0;
 
@@ -125,7 +127,6 @@ function split(Str) {
         itemp++;
         temp[itemp] = coefficienti[i];
         itemp++;
-        alert(temp);
     }
 
     return temp;
