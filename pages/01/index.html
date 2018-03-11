@@ -5,6 +5,8 @@
 	<title>Equazioni di Secondo Grado • MathSolver</title>
 	<link rel="icon" href="../../img/logo.png">
 	<script src="../../js/script.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="script.js"></script>
 	<script src="../../js/jquery.js"></script>
 	<link rel="stylesheet" type="text/css" href="../../css/style.css">
 </head>
@@ -15,16 +17,16 @@
 	</header>
 	<section class="content">
 		<h1>Equazioni di Secondo Grado</h1>
-		<p>•••</p>
+		<br>
 		<p>
-			<input type="number" name="A" placeholder="Coefficiente di X²" required/>
-			X² + 
-			<input type="number" name="A" placeholder="Coefficiente di X" required/>
-			X + 
-			<input type="number" name="A" placeholder="Termine noto" required/>
-			= 0
+			inserire il testo includendo tutti termini anche se nulli<br>
+			es. x^2 + 0x + 1
 		<p>
-		<button>RISOLVI</button>
+		
+		<input type="text" id="input" placeholder="ax^2 + bx + c">
+		<button onclick="main()">RISOLVI</button>
+        <p id="output"></p>
+		
 	</section>
 	<section id="language">
 		<div>
