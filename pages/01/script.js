@@ -24,7 +24,11 @@ function input() { // Trasforma l'input in una forma accettabile dal computer
     
     input = input.replace(/\s/g, ""); // Toglie tutti gli spazi
     input = input.replace(/X/g, "x"); // Trasforma da X a x
+<<<<<<< HEAD
     input = input.replace(/x^2/g, "x²"); // Trasforma i 2 dei coefficenti della x da 2 a ²
+=======
+    input = input.replace(/x2/g, "x²"); // Trasforma i 2 dei coefficenti della x da 2 a ²
+>>>>>>> ce060c98720751cd0d00699a9edd4580506941a2
 
     if (!isOperatore(input.charAt(0)) || !isFinite(input.charAt(0)) || !isFinite(input.charAt(1))) { // Mette il più e/o l'1 all'inizio della stringa se non li ha già
         if (!isOperatore(input.charAt(0)) && !isFinite(input.charAt(0)))
@@ -46,14 +50,25 @@ function input() { // Trasforma l'input in una forma accettabile dal computer
 
 function output(Ris) { // Trasforma il risultato in una forma accettabile dall'utente
     if (Ris[0] == "Impossibile" || Ris[1] == "Impossibile") // Controllo eq imposibile
+<<<<<<< HEAD
         stampa("L'equazione è impossibile");
     else
         stampa("X<small>1</small> = " + Ris[0] + "<br>X<small>2</small> = " + Ris[1]);
+=======
+        stampa("L'equazione e' impossibile");
+    else
+        stampa("X<small>1</small> = " + Ris[0] + "    " + "X<small>2</small> = " + Ris[1]);
+>>>>>>> ce060c98720751cd0d00699a9edd4580506941a2
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
 function main() 
 {
+=======
+function main() {
+    alert(split(input()));
+>>>>>>> ce060c98720751cd0d00699a9edd4580506941a2
     output(solve(getNumeri(input())));
 }
