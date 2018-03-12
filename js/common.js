@@ -10,9 +10,9 @@ function isOperatore(car) {
         if (car == OPERATORI[i]) {
             return true;
         }
-
-        return false;;
     }
+	
+	return false;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -22,9 +22,9 @@ function isParentesiA(car) {
         if (car == PARENTESI[i]) {
             return true;
         }
-
-        return false;;
     }
+	
+	return false;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -34,9 +34,9 @@ function isParentesiC(car) {
         if (car == PARENTESI[i]) {
             return true;
         }
-
-        return false;;
     }
+	
+	return false;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -64,17 +64,17 @@ function divPar(Originale) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function getOperatori(Str) { // Prende gli operatori di una stringa
-    Str = Str.split(/[^+|-|*|/]/);
+    Str = Str.split(/[^+\-]/g);
     var temp = [];
     var itemp = 0;
-
+	alert(Str);
     for (var i = 0; i < Str.length; i++) {
         if (isOperatore(Str[i])) {
             temp[itemp] = Str[i];
             itemp++;
         }
     }
-    
+    alert(temp);
     return temp;
 }
 
@@ -111,6 +111,23 @@ function getCoefficienti(Str) { // Prende i coefficienti di una stringa
     }
 
     return temp;
+}
+
+function getValori(Str) {
+	var numeri = getNumeri(Str);
+	var operatori = getOperatori(Str);
+	var itemp = 0;
+	var temp = [];
+	alert(numeri);
+	alert(operatori);
+	for (var i = 0; i < numeri.length; i++) {
+        temp[itemp] = operatori[i];
+        temp[itemp] += numeri[i];
+        itemp++;
+    }
+	
+	alert(temp);
+	return temp;
 }
 
 function split(Str) {

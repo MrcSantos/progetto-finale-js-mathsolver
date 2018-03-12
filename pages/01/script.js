@@ -24,8 +24,9 @@ function input() { // Trasforma l'input in una forma accettabile dal computer
     
     input = input.replace(/\s/g, ""); // Toglie tutti gli spazi
     input = input.replace(/X/g, "x"); // Trasforma da X a x
-    input = input.replace(/x^2/g, "x²"); // Trasforma i 2 dei coefficenti della x da 2 a ²
-
+	input = input.replace(/\^/g, ""); // Toglie i cappelletti
+    input = input.replace(/x2/g, "x²"); // Trasforma i 2 dei coefficenti della x da 2 a ²
+	
     if (!isOperatore(input.charAt(0)) || !isFinite(input.charAt(0)) || !isFinite(input.charAt(1))) { // Mette il più e/o l'1 all'inizio della stringa se non li ha già
         if (!isOperatore(input.charAt(0)) && !isFinite(input.charAt(0)))
             input = "+1" + input;
@@ -38,7 +39,8 @@ function input() { // Trasforma l'input in una forma accettabile dal computer
             }
         }
     }
-    
+	
+	alert(input);
     return input;
 }
 
@@ -55,5 +57,5 @@ function output(Ris) { // Trasforma il risultato in una forma accettabile dall'u
 
 function main() 
 {
-    output(solve(getNumeri(input())));
+    output(solve(getValori(input())));
 }
