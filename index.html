@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- design version: 1.0 -->
 <html lang="it">
 <head>
 	<meta charset="utf-8">
@@ -7,33 +6,32 @@
 	<link rel="icon" href="img/logo.png">
 	<script src="js/script.js"></script>
 	<script src="js/jquery.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/eq_engine.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<header>
-		<a href="index.html" class="header_name"><h1><span>Math</span>Solver<small> 1.2beta</small></h1></a>
-		<h3 class="header_cat" onclick="header_showcat()">Categorie</h3>
-		<h3 class="header_info" onclick="header_showinfo()">Info</h3>
+		<a href="index.html" class="header_name"><h1><span>Math</span>Solver<small> 2.1</small></h1></a>
 		<h3 class="header_lang" onclick="header_changelang()"><img src="img/settings.svg" alt="lang" title="Change Language"></h3>
 	</header>
-	<section class="content" id="categories">
-		<h1>Categorie</h1>
+	<section class="content">
+		<h1 id="l1">Equazioni di Secondo Grado</h1>
+		<br>
+		<p id="l2">
+			inserire il testo includendo tutti i termini<br>es: x^2 -2x -4
 		<p>
-			<br>
-			<a href="pages/01/index.html">Equazioni di Secondo Grado</a>
-		</p>
-	</section>
-	<section class="content" id="about">
-		<h1>Informazioni</h1>
-		<p>•••</p>
+		<input type="text" id="input" placeholder="ax^2 + bx + c">
+		<button onclick="main()" id="l3">RISOLVI</button>
+        <p id="output"></p>
 	</section>
 	<section id="language">
 		<div>
 			<h3 id="title_lang">Scegli la lingua</h3>
-			<p><a onClick="header_changelang()">Italiano</a> - <a onClick="header_changelang()">English</a></p>
+			<p><a onClick="header_changelang(0)">Italiano</a> - <a onClick="header_changelang(1)">English</a></p>
 		</div>
 	</section>
 	<footer>
-		<p>&copy; 2018 <span class="ver">by</span> Veronesi, Santosuosso, Rusyn</p>
+		<p>&copy; 2018 <span class="ver">by</span> Veronesi, Santosuosso, <del>Rusyn</del></p>
 	</footer>
 </body>

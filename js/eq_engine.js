@@ -40,15 +40,18 @@ function input() { // Trasforma l'input in una forma accettabile dal computer
         }
     }
 	
-	alert(input);
     return input;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
 function output(Ris) { // Trasforma il risultato in una forma accettabile dall'utente
+
     if (Ris[0] == "Impossibile" || Ris[1] == "Impossibile") // Controllo eq imposibile
-        stampa("L'equazione è impossibile");
+	{
+		if (document.getElementById('l3').innerHTML == "RISOLVI") stampa("L'equazione è impossibile");
+		else stampa("The equation is impossible");
+	}
     else
         stampa("X<small>1</small> = " + Ris[0] + "<br>X<small>2</small> = " + Ris[1]);
 }
